@@ -39,8 +39,9 @@ document.getElementById("tap").addEventListener("click", () => {
 
 
 document.getElementById("ble-connect").addEventListener("click", async () => {
-  const UUID_LED_SERVICE = 'e95dd91d-251d-470a-a062-fa1922dfa9a8'
-  const UUID_LED_SERVICE_CHARACTERISTIC = 'e95d7b77-251d-470a-a062-fa1922dfa9a8'
+  const UUID_TEMPERATURE_SERVICE = 'e95d6100-251d-470a-a062-fa1922dfa9a8'
+  const UUID_TEMPERATURE_SERVICE_CHARACTERISTIC_DATA   = 'e95d9250-251d-470a-a062-fa1922dfa9a8'
+  const UUID_TEMPERATURE_SERVICE_CHARACTERISTIC_PERIOD = 'e95d1b25-251d-470a-a062-fa1922dfa9a8'
 
     if (!microbit) {
         microbit = await navigator.bluetooth.requestDevice({
@@ -48,8 +49,8 @@ document.getElementById("ble-connect").addEventListener("click", async () => {
             optionalServices: [UUID_LED_SERVICE] // サービスUUIDはmicro:bit側に合わせて
         });
         const server = await microbit.gatt.connect();
-        const service = await server.getPrimaryService(UUID_LED_SERVICE);
-        microbit.char = await service.getCharacteristic(UUID_LED_SERVICE_CHARACTERISTIC);
+        const service = await server.getPrimaryService(UUID_TEMPERATURE_SERVICE);
+        microbit.char = await service.getCharacteristic(UUID_TEMPERATURE_SERVICE_CHARACTERISTIC_DATA);
     }
 });
 
