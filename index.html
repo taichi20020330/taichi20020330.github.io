@@ -1,1 +1,18 @@
-<button onclick="startBeatDetection()">Start</button>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>BPM Detector</title>
+</head>
+<body>
+  <h1>🎵 マイクからBPM測定</h1>
+  <button onclick="start()">マイク開始</button>
+  <p id="bpm">BPM: ...</p>
+
+  <!-- aubio.js の読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/aubiojs@0.4.9/aubio.min.js"></script>
+
+  <!-- 自作のスクリプト -->
+  <script src="beat_detect.js"></script>
+</body>
+</html>
