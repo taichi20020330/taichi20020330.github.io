@@ -1,7 +1,7 @@
 let audioContext;
 let lastBPM = 0;
 
-export async function start() {
+async function start() {
   audioContext = new AudioContext();
   await audioContext.audioWorklet.addModule('bpm_worklet.js');
 
