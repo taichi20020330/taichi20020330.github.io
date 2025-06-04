@@ -3,7 +3,7 @@ let lastBPM = 0;
 
 export async function start() {
   audioContext = new AudioContext();
-  await audioContext.audioWorklet.addModule('bpm-worklet.js');
+  await audioContext.audioWorklet.addModule('bpm_worklet.js');
 
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   const mic = audioContext.createMediaStreamSource(stream);
